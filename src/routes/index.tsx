@@ -1,27 +1,26 @@
 import { createBrowserRouter } from 'react-router-dom';
+import { WrapperRoute } from '~/components/WrapperRoute';
 import { About } from '~/modules/About';
 import { Contact } from '~/modules/Contact';
-import Home from '~/modules/Home';
+import { Home } from '~/modules/Home';
 import { Services } from '~/modules/Services';
 
 export const router = createBrowserRouter([
   {
     path: '/',
-    element: <Home />,
+    element: <WrapperRoute component={<Home />} />,
   },
-  {
-    path: '/about',
-    element: <About />,
-  },
+
   {
     path: '/services',
-    element: <Services />,
+    element: <WrapperRoute component={<Services />} />,
   },
   {
     path: '/contact',
-    element: <Contact />,
+    element: <WrapperRoute component={<Contact />} />,
+  },
+  {
+    path: '/about',
+    element: <WrapperRoute component={<About />} />,
   },
 ]);
-
-// Tipar os links que são para direcionamento interno com os tipes do paths
-console.log(router.routes);
